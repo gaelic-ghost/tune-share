@@ -8,11 +8,51 @@
 import SwiftUI
 
 struct SettingsContentView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+	@ObservedObject var spotifyModel: SpotifySettingsViewModel
+
+	var body: some View {
+		Form {
+			Section("Spotify") {
+				TextField("Client ID", text: $spotifyModel.clientID)
+					.textFieldStyle(.roundedBorder)
+				TextField("Redirect URI", text: $spotifyModel.redirectURI)
+					.textFieldStyle(.roundedBorder)
+
+				HStack {
+					Button("Save") {
+						spotifyModel.saveConfiguration()
+					}
+					Button("Connect Spotify") {
+						spotifyModel.connectSpotify()
+					}
+					.buttonStyle(.borderedProminent)
+					Button("Test Now Playing") {
+						spotifyModel.fetchNowPlaying()
+					}
+					Button("Sign Out") {
+						spotifyModel.signOut()
+					}
+				}
+				.disabled(spotifyModel.isBusy)
+
+				if let statusMessage = spotifyModel.statusMessage {
+					Text(statusMessage)
+						.font(.footnote)
+						foregroundStyle(.secondary)
+				}
+
+				if let summary = spotifyModel.nowPlayingSummary {
+					Text(summary)
+				}
+			}
+		}
+		.padding()
+		.frame(minWidth: 560)
+		.onOpenURL { spotifyModel.handleCallback(url: $0) }
+	}
+
 }
 
 #Preview {
-	SettingsContentView()
+	SettingsContentView(spotifyModel: SpotifySettingsViewModel())
 }

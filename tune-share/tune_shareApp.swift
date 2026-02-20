@@ -13,6 +13,7 @@ struct tune_shareApp: App {
 	// TODO: Consider CA and Shazam as another way to match currently playing tracks
 	
 	let defaults = UserDefaults()
+	@StateObject private var spotifyModel = SpotifySettingsViewModel()
 	
     var body: some Scene {
 		
@@ -25,7 +26,8 @@ struct tune_shareApp: App {
 		/// macOS Settings Scene
 		Settings {
 			// TODO: Pass in AppStorage settings
-			SettingsSwitchView()
+			SettingsSwitchView(spotifyModel: spotifyModel)
+				.onOpenURL { spotifyModel.handleCallback(url: $0) }
 		}
     }
 }
