@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// TODO: Impl menu bar view
+
 struct MenuBarView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

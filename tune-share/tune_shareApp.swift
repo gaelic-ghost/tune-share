@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct tune_shareApp: App {
+	@AppStorage("isOnboarded") private var isOnboarded: Bool = false
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+		/// Menu Bar Scene
+		MenuBarExtra("Menu Item Label") {
+			// TODO: Impl view
+			MenuBarView()
+		}
+		/// macOS Settings Scene
+		Settings {
+			// TODO: Pass in AppStorage settings
+			// TODO: Impl both these views
+			// TODO: Get some sleep, then figure out why this ternary is erroring over "mismatched types" or whatever...
+			isOnboarded ? SettingsView() : SetupView()
+		}
     }
 }

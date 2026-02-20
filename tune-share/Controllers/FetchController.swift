@@ -7,6 +7,10 @@
 
 import Foundation
 
+// TODO: Impl fetch logic for currently playing track
+
+// TODO: Impl search and fetch logic for comparable links from other services
+
 enum Fetch {
 	
 	enum YT {
