@@ -34,37 +34,6 @@ struct CanonicalTrack: Codable, Hashable, Identifiable {
 	var sourceService: MusicService
 	var sourceServiceID: String
 	var sourceURL: URL?
-
-	init(
-		canonicalID: UUID = UUID(),
-		isrc: String? = nil,
-		title: String,
-		artists: [String],
-		album: String? = nil,
-		durationMs: Int? = nil,
-		explicit: Bool? = nil,
-		releaseDate: Date? = nil,
-		trackNumber: Int? = nil,
-		discNumber: Int? = nil,
-		sourceService: MusicService,
-		sourceServiceID: String,
-		sourceURL: URL? = nil
-	) {
-		self.canonicalID = canonicalID
-		self.isrc = isrc
-		self.title = title
-		self.artists = artists
-		self.album = album
-		self.durationMs = durationMs
-		self.explicit = explicit
-		self.releaseDate = releaseDate
-		self.trackNumber = trackNumber
-		self.discNumber = discNumber
-		self.sourceService = sourceService
-		self.sourceServiceID = sourceServiceID
-		self.sourceURL = sourceURL
-	}
-
 	var fingerprint: TrackFingerprint {
 		TrackFingerprint(
 			isrc: isrc?.uppercased(),
