@@ -20,8 +20,10 @@ struct tune_shareApp: App {
 		Settings {
 			// TODO: Pass in AppStorage settings
 			// TODO: Impl both these views
-			// TODO: Get some sleep, then figure out why this ternary is erroring over "mismatched types" or whatever...
-			isOnboarded ? SettingsView() : SetupView()
+			switch isOnboarded {
+				case true: SettingsView()
+				case false: SetupView()
+			}
 		}
     }
 }
