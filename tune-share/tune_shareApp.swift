@@ -18,8 +18,7 @@ struct tune_shareApp: App {
     var body: some Scene {
 		
 		/// Menu Bar Scene
-		MenuBarExtra("Menu Item Label") {
-			// TODO: Impl view
+		MenuBarExtra("Label") {
 			MenuBarContentView()
 		}
 		

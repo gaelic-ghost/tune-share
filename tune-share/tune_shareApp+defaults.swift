@@ -8,9 +8,30 @@
 import Foundation
 
 extension tune_shareApp {
-	// TODO: impl k/v pairs for defaults
-	// TODO: impl reset function
-	// TODO: impl function(s) for fetching defaults
-	// TODO: impl function(s) for onboarding flow
-	// TODO: impl function(s) for changing defaults
+	enum DefaultsKey {
+		static let spotifyClientID = "spotifyClientID"
+		static let spotifyRedirectURI = "spotifyRedirectURI"
+	}
+
+	enum OnboardingState {
+		case needsConfiguration
+		case configured
+	}
+
+	static func onboardingState(defaults: UserDefaults = .standard) -> OnboardingState {
+		hasSpotifyConfiguration(defaults: defaults) ? .configured : .needsConfiguration
+	}
+
+	static func hasSpotifyConfiguration(defaults: UserDefaults = .standard) -> Bool {
+		let clientID = defaults.string(forKey: DefaultsKey.spotifyClientID)?
+			.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+		let redirectURI = defaults.string(forKey: DefaultsKey.spotifyRedirectURI)?
+			.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+		return !clientID.isEmpty && !redirectURI.isEmpty
+	}
+
+	static func resetSpotifyConfiguration(defaults: UserDefaults = .standard) {
+		defaults.removeObject(forKey: DefaultsKey.spotifyClientID)
+		defaults.removeObject(forKey: DefaultsKey.spotifyRedirectURI)
+	}
 }
