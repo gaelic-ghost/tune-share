@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct tune_shareApp: App {
 	
+	// TODO: Consider CA and Shazam as another way to match currently playing tracks
+	
 	let defaults = UserDefaults()
 	
     var body: some Scene {
