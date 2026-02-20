@@ -16,5 +16,5 @@ struct MenuBarContentView: View {
 }
 
 #Preview {
-    MenuBarView()
+    MenuBarContentView()
 }
