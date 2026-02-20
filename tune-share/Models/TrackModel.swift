@@ -8,3 +8,11 @@
 import Foundation
 
 // TODO: Impl basic datamodel for track
+
+struct TrackModel: Codable {
+	var id: String
+	var title: String
+	var artist: String
+	var album: String
+	var duration: String
+}
