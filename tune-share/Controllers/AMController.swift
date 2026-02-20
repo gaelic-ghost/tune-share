@@ -9,3 +9,7 @@ import Foundation
 
 // TODO: Fetch currently playing track (MusicKit or Shortcut/App Intent)
 // TODO: Search, match, parse comparable links
+
+final class AMController {
+	
+}

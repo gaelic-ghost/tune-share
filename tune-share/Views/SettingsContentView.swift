@@ -14,5 +14,5 @@ struct SettingsContentView: View {
 }
 
 #Preview {
-    SettingsContentView()
+	SettingsContentView()
 }

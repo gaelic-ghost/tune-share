@@ -9,3 +9,7 @@ import Foundation
 
 // TODO: Get currently playing track
 // TODO: Search, match, parse comparable links
+
+final class SpotifyController {
+	
+}

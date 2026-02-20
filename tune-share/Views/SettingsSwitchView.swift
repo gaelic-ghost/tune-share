@@ -16,11 +16,7 @@ struct SettingsSwitchView: View {
 		// TODO: Impl both these views
 		switch isOnboarded {
 			case true: SettingsContentView()
-			case false: SetupView()
+			case false: SetupContentView()
 		}
 	}
-}
-
-#Preview {
-    SettingsView()
 }

@@ -16,5 +16,5 @@ struct SetupContentView: View {
 }
 
 #Preview {
-    SetupView()
+    SetupContentView()
 }

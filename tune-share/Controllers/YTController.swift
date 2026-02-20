@@ -9,3 +9,7 @@ import Foundation
 
 // TODO: Impl logic for searching comparable links
 // TODO: Fetch and Parse matched links
+
+final class YTController {
+	
+}
