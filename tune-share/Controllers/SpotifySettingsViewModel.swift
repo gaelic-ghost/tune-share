@@ -30,6 +30,11 @@ final class SpotifySettingsViewModel: ObservableObject {
 		self.redirectURI = defaults.string(forKey: "spotifyRedirectURI") ?? ""
 	}
 
+	var hasConfiguration: Bool {
+		!clientID.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+		!redirectURI.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+	}
+
 	func saveConfiguration() {
 		defaults.set(clientID.trimmingCharacters(in: .whitespacesAndNewlines), forKey: "spotifyClientID")
 		defaults.set(redirectURI.trimmingCharacters(in: .whitespacesAndNewlines), forKey: "spotifyRedirectURI")
